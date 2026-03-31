@@ -2,57 +2,91 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Club degli Scienziati Gentili</title>
+<title>Club dei Giovani Scienziati Gentili</title>
+
+<style>
+body {
+font-family: Arial, sans-serif;
+background: #f5f5f5;
+margin: 0;
+text-align: center;
+}
+
+.container {
+max-width: 800px;
+margin: 60px auto;
+background: white;
+padding: 40px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+font-size: 32px;
+}
+
+h2 {
+margin-top: 30px;
+}
+
+button {
+margin-top: 20px;
+padding: 15px 25px;
+font-size: 16px;
+border: none;
+background: #111;
+color: white;
+cursor: pointer;
+}
+
+button:hover {
+background: #333;
+}
+
+</style>
 </head>
 
-<body style="font-family: Arial; text-align: center; padding: 40px; background:#f5f5f5;">
+<body>
 
-<h1>Club degli Scienziati Gentili</h1>
+<div class="container">
+
+<h1>Club dei Giovani Scienziati Gentili</h1>
 
 <p>Non serve iscrizione.</p>
 <p>Non serve permesso.</p>
-<p><strong>Serve solo una cosa:</strong></p>
+<p><b>Serve solo una cosa:</b></p>
 
 <h2>non smettere di guardare davvero</h2>
 
-<hr style="margin:40px">
+<hr>
 
-<h3>Domanda di oggi</h3>
-<p id="domanda"></p>
+<h2>Domanda di oggi</h2>
 
-<textarea id="risposta" placeholder="Scrivi cosa pensi..." style="width:80%; height:100px;"></textarea>
-
-<br><br>
-
-<button onclick="salva()">Salva</button>
+<button onclick="generaDomanda()">Scopri</button>
 
 <p id="output"></p>
 
-<hr style="margin:40px">
+<hr>
 
-<p>
-<a href="https://www.amazon.it/dp/B0GTWPFNXF">Le Molecole Gentili</a>
-</p>
+<h2>Inizia da qui</h2>
+
+<a href="https://www.amazon.it" target="_blank">
+<button>Leggi Le Molecole Gentili</button>
+</a>
+
+</div>
 
 <script>
+function generaDomanda() {
 const domande = [
-"Perché qualcosa si muove?",
-"Cosa succede se tutto si ferma?",
-"Cosa cambia quando osservi davvero?",
-"L’errore cosa ti sta dicendo?",
-"Cosa tiene insieme le cose?"
+"Perché le cose si muovono?",
+"Che cos’è davvero una molecola?",
+"Perché il cielo cambia colore?",
+"Cosa significa osservare davvero?",
+"La scienza è scoperta o invenzione?"
 ];
 
-document.getElementById("domanda").innerText =
-domande[Math.floor(Math.random() * domande.length)];
-
-function salva() {
-let r = document.getElementById("risposta").value;
-if(r.trim() !== "") {
-localStorage.setItem("risposta", r);
-document.getElementById("output").innerText = "Salvato. Torna e continua.";
-}
+const scelta = domande[Math.floor(Math.random() * domande.length)];
+document.getElementById("output").innerText = scelta;
 }
 </script>
 
