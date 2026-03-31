@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Club degli Scienziati Gentili</title>
 </head>
-<body style="font-family: Arial, sans-serif; text-align: center; padding: 40px; background: #f5f5f5; color: #222;">
+
+<body style="font-family: Arial; text-align: center; padding: 40px; background:#f5f5f5;">
 
 <h1>Club degli Scienziati Gentili</h1>
 
@@ -15,40 +16,23 @@
 
 <h2>non smettere di guardare davvero</h2>
 
-<hr style="margin: 40px 0;">
+<hr style="margin:40px">
 
 <h3>Domanda di oggi</h3>
-<p id="domanda" style="font-size: 20px; font-weight: bold;"></p>
+<p id="domanda"></p>
 
-<textarea
-id="risposta"
-placeholder="Scrivi cosa pensi..."
-style="width: 80%; max-width: 700px; height: 100px; padding: 10px; font-size: 16px;"
-</textarea>
+<textarea id="risposta" placeholder="Scrivi cosa pensi..." style="width:80%; height:100px;"></textarea>
 
 <br><br>
 
-<button
-onclick="salva()"
-style="padding: 12px 24px; font-size: 16px; cursor: pointer;"
+<button onclick="salva()">Salva</button>
 
-Salva
-</button>
+<p id="output"></p>
 
-<p id="output" style="margin-top: 20px; font-weight: bold;"></p>
-
-<hr style="margin: 40px 0;">
+<hr style="margin:40px">
 
 <p>
-<a href="https://www.amazon.it/dp/B0GTWPFNXF" style="font-size: 22px;">
-Le Molecole Gentili
-</a>
-</p>
-
-<p>
-<a href="https://github.com/CatterinaGiordano/le-molecole-gentili">
-Repository del libro
-</a>
+<a href="https://www.amazon.it/dp/B0GTWPFNXF">Le Molecole Gentili</a>
 </p>
 
 <script>
@@ -64,18 +48,11 @@ document.getElementById("domanda").innerText =
 domande[Math.floor(Math.random() * domande.length)];
 
 function salva() {
-const r = document.getElementById("risposta").value;
-if (r.trim() !== "") {
-localStorage.setItem("club_scienziati_gentili_risposta", r);
+let r = document.getElementById("risposta").value;
+if(r.trim() !== "") {
+localStorage.setItem("risposta", r);
 document.getElementById("output").innerText = "Salvato. Torna e continua.";
-} else {
-document.getElementById("output").innerText = "Scrivi qualcosa prima di salvare.";
 }
-}
-
-const rispostaSalvata = localStorage.getItem("club_scienziati_gentili_risposta");
-if (rispostaSalvata) {
-document.getElementById("risposta").value = rispostaSalvata;
 }
 </script>
 
